@@ -13,6 +13,11 @@
 
         <?php if(isset($__js)){ for($i=0;$i<count($__js);$i++){ echo __js($__js[$i]); }} ?>
 
+		<?php
+		// var_dump($__js); 
+		 ?>
+		
+
 	</head>
 	<body class="login" style="background-color: lightgrey">
 	<div class="bxlogin">
@@ -24,7 +29,6 @@
 				<h2 class="text-success"><b><a href="<?php echo base_url(); ?>" class="text-success"><i class="icon icon-arrow-left-circle"></i></a> MASUK MEMBER</b></h2>
 				<br>
 				<form action="<?php echo base_url() ?>member/member__masuk" method="POST">
-					<input type="hidden" name="token" value="<?php echo $this->encrypt->encode(TOKEN); ?>">
 					<fieldset class="form-group">
 						<label>Email</label>
 						<input type="email" class="form-control" name="EMAIL" tabindex="1" placeholder="Enter email" required="">
@@ -34,18 +38,20 @@
 						<a href="#lupa_password" data-toggle="modal" class="float-right" tabindex="4"><label><i class="icon icon-question"></i> Lupa password</label></a>
 						<div class="clearfix"></div>
 						<input type="password" class="form-control" name="PASSWORD" tabindex="2" placeholder="Enter password" required="">
-					</fieldset>
-					<fieldset class="form-group">
-						<?php echo $widget;?>
-						<?php echo $script;?>
-					</fieldset>
-					
-					<br>
-					<button type="submit" class="btn btn-success btn-lg btn-block" tabindex="3"><i class="icon icon-login"></i> Masuk</button>
-					<hr/>
-					<p>Belum punya akun ? <a href="<?php echo base_url() ?>member/registrasi" class="btn btn-link">Registrasi disini</a></p>
-				</form>
-			</div>
+						
+						
+						<br>
+						<button type="submit" class="btn btn-success btn-lg btn-block" tabindex="3"><i class="icon icon-login"></i> Masuk</button>
+						<hr/>
+						<p>Belum punya akun ? <a href="<?php echo base_url() ?>member/registrasi" class="btn btn-link">Registrasi disini</a></p>
+					</form>
+				</fieldset>
+				<fieldset class="form-group">
+					<input type="hidden" name="token" value="<?php echo $this->encrypt->encode(TOKEN); ?>">
+					<?php echo $widget;?>
+					<?php echo $script;?>
+				</fieldset>
+				</div>
 		</div>
 	</div>
 

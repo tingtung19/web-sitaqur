@@ -19,22 +19,21 @@
 	<div class="row" style="margin-top: 20px;">	
 		<div class="col-md-6">
         <form action="<?php echo base_url() ?>member/tabungan__add" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="token" value="<?php echo $this->encrypt->encode(TOKEN); ?>">
         	<fieldset class="form-group">
-        		<label>Nominal</label><span class="required">*</span>
+				<label>Nominal</label><span class="required">*</span>
         		<input id="mask1" type="text" class="form-control" name="NOMINAL" placeholder="Enter nominal" required="">
         	</fieldset>
         	<fieldset class="form-group">
-        		<label>Tujuan Bank Transfer</label><span class="required">*</span>
+				<label>Tujuan Bank Transfer</label><span class="required">*</span>
         		<select class="form-control" name="REK_ID" required="">
-        			<option value="">--Pilih--</option>
+					<option value="">--Pilih--</option>
         			<?php foreach( $this->db->where('REKENING_STATUS', 'TAMPIL')->get('REKENING')->result() as $rek ){ ?>
-        			<option value="<?php echo $rek->REKENING_ID; ?>"><?php echo $rek->REKENING_NAMA; ?></option>
+						<option value="<?php echo $rek->REKENING_ID; ?>"><?php echo $rek->REKENING_NAMA; ?></option>
         			<?php } ?>
         		</select>
         	</fieldset>
         	<fieldset class="form-group">
-        		<label>Tanggal</label><span class="required">*</span>
+				<label>Tanggal</label><span class="required">*</span>
         		<input type="date" class="form-control" name="TGL" required="">
         	</fieldset>
         	<fieldset class="form-group">
@@ -43,8 +42,9 @@
         		<small class="text-muted">Maximal ukuran file 200kb dan format PNG/JPG</small>
         	</fieldset>
         	<button type="submit" class="btn btn-primary">Kirim</button>
+			<input type="hidden" name="token" value="<?php echo $this->encrypt->encode(TOKEN); ?>">
         </form>
-		</div>
+	</div>
 		<div class="col-md-6">
 			<img id="image-preview" class="img-fluid img-thumbnail" style="width: 400px;height: auto;" alt="image preview" />
 		</div>

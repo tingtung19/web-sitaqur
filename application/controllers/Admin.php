@@ -5,40 +5,41 @@ class Admin extends CI_Controller {
 
 	public function __construct()
 	{
-		parent::__construct();
-		//Do your magic here
-
-		// 	Set Time Default "Indonesia"
-		date_default_timezone_set('Asia/Jakarta');
-
-		//	Load model
-		$this->load->model('M__grafik');
-
+		// parent::__construct();
+		// //Do your magic here
+		
+		// // 	Set Time Default "Indonesia"
+		// date_default_timezone_set('Asia/Jakarta');
+		
+		// //	Load model
+		// $this->load->model('M__grafik');
+		
 		//	Load library
-		$config['first_link']      = 'Pertama';
-		$config['last_link']       = 'Terakhir';
-		$config['next_link']       = 'Selanjutnya';
-		$config['prev_link']       = 'Sebelumnya';
-		$config['full_tag_open']   = '<nav><ul class="pagination justify-content-end">';
-		$config['full_tag_close']  = '</ul></nav>';
-		$config['num_tag_open']    = '<li class="page-item"><span class="page-link">';
-		$config['num_tag_close']   = '</span></li>';
-		$config['cur_tag_open']    = '<li class="page-item active"><span class="page-link">';
-		$config['cur_tag_close']   = '</span></li>';
-		$config['next_tag_open']   = '<li class="page-item"><span class="page-link">';
-		$config['next_tag_close']  = '</span></li>';
-		$config['prev_tag_open']   = '<li class="page-item"><span class="page-link">';
-		$config['prev_tag_close']  = '</span></li>';
-		$config['first_tag_open']  = '<li class="page-item"><span class="page-link">';
-		$config['first_tag_close'] = '</span></li>';
-		$config['last_tag_open']   = '<li class="page-item"><span class="page-link">';
-		$config['last_tag_close']  = '</span></li>';
-
-		$this->load->library('pagination', $config);
-		$this->load->library('recaptcha');
-
+		// $config['first_link']      = 'Pertama';
+		// $config['last_link']       = 'Terakhir';
+		// $config['next_link']       = 'Selanjutnya';
+		// $config['prev_link']       = 'Sebelumnya';
+		// $config['full_tag_open']   = '<nav><ul class="pagination justify-content-end">';
+		// $config['full_tag_close']  = '</ul></nav>';
+		// $config['num_tag_open']    = '<li class="page-item"><span class="page-link">';
+		// $config['num_tag_close']   = '</span></li>';
+		// $config['cur_tag_open']    = '<li class="page-item active"><span class="page-link">';
+		// $config['cur_tag_close']   = '</span></li>';
+		// $config['next_tag_open']   = '<li class="page-item"><span class="page-link">';
+		// $config['next_tag_close']  = '</span></li>';
+		// $config['prev_tag_open']   = '<li class="page-item"><span class="page-link">';
+		// $config['prev_tag_close']  = '</span></li>';
+		// $config['first_tag_open']  = '<li class="page-item"><span class="page-link">';
+		// $config['first_tag_close'] = '</span></li>';
+		// $config['last_tag_open']   = '<li class="page-item"><span class="page-link">';
+		// $config['last_tag_close']  = '</span></li>';
+		
+		// $this->load->library('pagination', $config);
+		// $this->load->library('recaptcha');
+		
 		//	Load helper
-		$this->load->helper('help');
+		// $this->load->helper('help');
+
 	}
 
 	public function is__login()
@@ -162,12 +163,12 @@ class Admin extends CI_Controller {
 
 	public function admin__masuk()
 	{
-		$recaptcha = $this->input->post('g-recaptcha-response');
-         if (!empty($recaptcha)) 
-         {
-             $response = $this->recaptcha->verifyResponse($recaptcha);
-             if (isset($response['success']) and $response['success'] === true) 
-             {
+		// $recaptcha = $this->input->post('g-recaptcha-response');
+        //  if (!empty($recaptcha)) 
+        //  {
+        //      $response = $this->recaptcha->verifyResponse($recaptcha);
+        //      if (isset($response['success']) and $response['success'] === true) 
+        //      {
              	$USERNAME = $this->input->post('USERNAME');
 				$PASSWORD = __password($this->input->post('PASSWORD'));
 
@@ -196,15 +197,15 @@ class Admin extends CI_Controller {
 
 					redirect('admin');
 				}
-             }
+            //  }
 
-         }
-         else
-         {
-         	$this->session->set_flashdata('__alert', '<div class="alert alert-danger alert-style">Maaf! CAPTCHA tidak sesuai</div>');
+        //  }
+        //  else
+        //  {
+        //  	$this->session->set_flashdata('__alert', '<div class="alert alert-danger alert-style">Maaf! CAPTCHA tidak sesuai</div>');
 
-		    redirect('admin/masuk');
-         }
+		//     redirect('admin/masuk');
+        //  }
 
         	$USERNAME = $this->input->post('USERNAME');
 			$PASSWORD = __password($this->input->post('PASSWORD'));

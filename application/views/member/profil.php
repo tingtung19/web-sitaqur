@@ -192,7 +192,8 @@
 <script>
 	$(function(){
 		// variable
-		const base_url = window.location.origin+'/ci__sitaqur/';
+		const base_url = window.location.origin;
+		console.log(base_url);
 
 		// Form Validation Parsley JS
 		$('form').parsley();
@@ -205,7 +206,7 @@
 		
 		function ajax_provinsi(){
 		    jQuery.ajax({
-		      url: base_url+'api/provinsi',
+		      url: base_url+'/api/provinsi',
 		      type: 'GET',
 		      dataType: 'html',
 		      beforeSend: function() {
@@ -225,7 +226,7 @@
 		
 		function ajax_kabupaten(){
 		    jQuery.ajax({
-		      url: base_url+'api/kabupaten/'+provinsi.children('option:selected').data('id')+'',
+		      url: base_url+'/api/kabupaten/'+provinsi.children('option:selected').data('id')+'',
 		      type: 'GET',
 		      dataType: 'html',
 		      beforeSend: function() {
@@ -244,7 +245,7 @@
 		
 		function ajax_kecamatan(){
 		    jQuery.ajax({
-		      url: base_url+'api/kecamatan/'+kabupaten.children('option:selected').data('id')+'',
+		      url: base_url+'/api/kecamatan/'+kabupaten.children('option:selected').data('id')+'',
 		      type: 'GET',
 		      dataType: 'html',
 		      beforeSend: function() {
@@ -264,7 +265,7 @@
 		
 		function ajax_desa(){
 			jQuery.ajax({
-		      url: base_url+'api/desa/'+kecamatan.children('option:selected').data('id')+'',
+		      url: base_url+'/api/desa/'+kecamatan.children('option:selected').data('id')+'',
 		      type: 'GET',
 		      dataType: 'html',
 		      beforeSend: function() {

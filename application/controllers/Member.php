@@ -8,6 +8,10 @@ class Member extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		// echo "</pre>";
+		// var_dump('ahloooa');
+		// echo "</pre>";
+		// // die;
 		//Do your magic here
 		date_default_timezone_set('Asia/Jakarta');
 
@@ -133,7 +137,7 @@ class Member extends CI_Controller {
         $data = array(
         	'__title'=> APP_NAME . '~ Halaman Login Member',
 			'__css'  => array('bootstrap','simpleicon','front'),
-			'__js'   => array('jquery','bootstrap','parsley','front'),
+			// '__js'   => array('jquery','bootstrap','parsley','front'),
 
             'widget' => $this->recaptcha->getWidget(),
             'script' => $this->recaptcha->getScriptTag()
@@ -145,12 +149,12 @@ class Member extends CI_Controller {
 
 	public function member__masuk()
 	{
-		$recaptcha = $this->input->post('g-recaptcha-response');
-         if (!empty($recaptcha)) 
-         {
-             $response = $this->recaptcha->verifyResponse($recaptcha);
-             if (isset($response['success']) and $response['success'] === true) 
-             {
+		// $recaptcha = $this->input->post('g-recaptcha-response');
+        //  if (!empty($recaptcha)) 
+        //  {
+        //      $response = $this->recaptcha->verifyResponse($recaptcha);
+        //      if (isset($response['success']) and $response['success'] === true) 
+        //      {
                  $EMAIL	  = $this->input->post('EMAIL');
 				$PASSWORD = __password($this->input->post('PASSWORD'));
 
@@ -201,14 +205,14 @@ class Member extends CI_Controller {
 						}
 					}
 				}
-             }
-         }
-         else
-         {
-         	$this->session->set_flashdata('__alert', '<div class="alert alert-danger alert-style">Maaf! CAPTCHA tidak sesuai</div>');
+        //      }
+        //  }
+        //  else
+        //  {
+        //  	$this->session->set_flashdata('__alert', '<div class="alert alert-danger alert-style">Maaf! CAPTCHA tidak sesuai</div>');
 
-		    redirect('member/masuk');
-         }
+		//     redirect('member/masuk');
+        //  }
 
 			if ( $this->valid__token($this->input->post('token')) ) 
 			{
@@ -915,15 +919,14 @@ class Member extends CI_Controller {
 
 	public function tabungan__add()
 	{
-		if ( $this->valid__token($this->input->post('token')) ) 
-		{
+		// if ( $this->valid__token($this->input->post('token')) ) 
+		// {
 
 			$config['upload_path']   = './uploads/member/bukti/';
 			$config['allowed_types'] = 'jpg|png';
 			$config['max_size']      = '2000';
 
 			$this->load->library('upload', $config);
-
 			if($this->upload->do_upload('BUKTI'))
 			{
 				$object = array(
@@ -975,11 +978,11 @@ class Member extends CI_Controller {
 				$this->session->set_flashdata('__alert', '<div class="alert alert-danger alert-style">Maaf! Terjadi kesalahan pada file bukti mohon mencoba kembali</div>');
 			}
 			echo "valid";
-		}
-		else
-		{
-			$this->session->set_flashdata('__alert', '<div class="alert alert-danger alert-style">Maaf! Token tidak valid</div>');
-		}
+		// }
+		// else
+		// {
+		// 	$this->session->set_flashdata('__alert', '<div class="alert alert-danger alert-style">Maaf! Token tidak valid</div>');
+		// }
 		
 		redirect('member/tabungan');
 
@@ -1046,6 +1049,11 @@ class Member extends CI_Controller {
 
 	public function beranda()
 	{
+
+		echo "</pre>";
+		var_dump('hayo');
+		echo "</pre>";
+		die;
 
 		$data['query_lem'] = $this->db
 		->where('LEMBAGA_STATUS', 'TAMPIL')

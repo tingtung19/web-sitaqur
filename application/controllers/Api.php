@@ -38,14 +38,14 @@ class Api extends CI_Controller {
 	}
 	
 	public function provinsi(){
-	    
-	    $provinsi = json_decode(file_get_contents('http://dev.farizdotid.com/api/daerahindonesia/provinsi'));
+		
+		$provinsi = json_decode(file_get_contents('http://dev.farizdotid.com/api/daerahindonesia/provinsi'));
         
         $html = '';
         
-        for( $i=0; $i< count($provinsi->semuaprovinsi); $i++ )
+        for( $i=0; $i< count($provinsi->provinsi); $i++ )
         {
-            $html .= '<option value="'.$provinsi->semuaprovinsi[$i]->nama.'" data-id="'.$provinsi->semuaprovinsi[$i]->id.'">'.$provinsi->semuaprovinsi[$i]->nama.'</option>';
+			$html .= '<option value="'.$provinsi->provinsi[$i]->nama.'" data-id="'.$provinsi->provinsi[$i]->id.'">'.$provinsi->provinsi[$i]->nama.'</option>';
         }
         
         echo $html;
@@ -54,6 +54,11 @@ class Api extends CI_Controller {
 	public function kabupaten(){
 	    
 	    $kabupaten = json_decode(file_get_contents('http://dev.farizdotid.com/api/daerahindonesia/provinsi/'.$this->uri->segment(3).'/kabupaten'));
+
+		echo "</pre>";
+		var_dump($kabupaten);
+		echo "</pre>";
+		die;
         
         $html = '';
         

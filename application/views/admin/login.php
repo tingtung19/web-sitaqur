@@ -30,15 +30,15 @@
 						<div class="clearfix"></div>
 						<input type="password" class="form-control" placeholder="Enter password" name="PASSWORD" tabindex="2" required="">
 					</fieldset>
-					<fieldset class="form-group">
-						<?php echo $widget;?>
-						<?php echo $script;?>
-					</fieldset>
 					
 					<br>
 					<button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="3"><i class="icon icon-login"></i> Masuk</button>
 					
 				</form>
+				<fieldset class="form-group">
+					<?php echo $widget;?>
+					<?php echo $script;?>
+				</fieldset>
 			</div>
 		</div>
 	</div>
