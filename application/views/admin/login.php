@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title><?php echo $__title; ?></title>
 
-        <?php for($i=0;$i<count($__css);$i++){ echo __css($__css[$i]); } ?>
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title><?php echo $__title; ?></title>
 
-        <?php for($i=0;$i<count($__js);$i++){ echo __js($__js[$i]); } ?>
+	<?php for ($i = 0; $i < count($__css); $i++) {
+		echo __css($__css[$i]);
+	} ?>
 
-	</head>
-	<body class="login" style="background-color: lightgrey">
+	<?php for ($i = 0; $i < count($__js); $i++) {
+		echo __js($__js[$i]);
+	} ?>
+
+</head>
+
+<body class="login" style="background-color: lightgrey">
 	<div class="bxlogin">
 
 		<?php echo $this->session->flashdata('__alert'); ?>
@@ -30,14 +36,16 @@
 						<div class="clearfix"></div>
 						<input type="password" class="form-control" placeholder="Enter password" name="PASSWORD" tabindex="2" required="">
 					</fieldset>
-					
+
 					<br>
 					<button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="3"><i class="icon icon-login"></i> Masuk</button>
-					
+
 				</form>
 				<fieldset class="form-group">
-					<?php echo $widget;?>
-					<?php echo $script;?>
+					<?php //echo $widget;
+					?>
+					<?php //echo $script;
+					?>
 				</fieldset>
 			</div>
 		</div>
@@ -52,7 +60,7 @@
 						<span aria-hidden="true">&times;</span>
 						<span class="sr-only">Close</span>
 					</button>
-					
+
 				</div>
 				<div class="modal-body">
 					<form>
@@ -71,16 +79,17 @@
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 
-	<?php 
-		echo __js('jquery');
-		echo __js('parsley');
-		echo __js('bootstrap'); 
-		echo __js('dashboard'); 
+	<?php
+	echo __js('jquery');
+	echo __js('parsley');
+	echo __js('bootstrap');
+	echo __js('dashboard');
 	?>
 	<script>
-	 	$(document).ready(function(){
-	 		$('form').parsley();
-	 	})
-	 </script>
-	</body>
+		$(document).ready(function() {
+			$('form').parsley();
+		})
+	</script>
+</body>
+
 </html>
