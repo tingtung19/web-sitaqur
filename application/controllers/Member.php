@@ -263,8 +263,8 @@ class Member extends CI_Controller
 		$object = array(
 			'MEMBER_NAMA'       => strtoupper($this->input->post('NAMA')),
 			'MEMBER_EMAIL'      => $this->input->post('EMAIL'),
-			'MEMBER_VERIFIKASI' => 'BELUM',
-			'MEMBER_STATUS'     => 'BARU',
+			'MEMBER_VERIFIKASI' => 'SUDAH',
+			'MEMBER_STATUS'     => 'AKTIF',
 			'MEMBER_PASSWORD'   => __password($this->input->post('PASSWORD')),
 			'MEMBER_HP'         => $this->input->post('HP'),
 			'MEMBER_JK'         => $this->input->post('JK'),

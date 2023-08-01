@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `ADMIN` (
 -- Dumping data untuk tabel `admin`
 --
 
-INSERT INTO `admin` (`ADMIN_ID`, `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `ADMIN_NAMA`) VALUES
+INSERT INTO `ADMIN` (`ADMIN_ID`, `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `ADMIN_NAMA`) VALUES
 (1, 'admin', '97101111108112', 'Administrator');
 
 -- --------------------------------------------------------
